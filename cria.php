@@ -37,14 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!produtoJaExiste($novoProduto, $_SESSION['produtos'])) {
             $_SESSION['produtos'][] = serialize($novoProduto);
-            $_SESSION['mensagem'] = "Produto adicionado com sucesso!";
             redirecionar('mostra.php');
         } else {
-            $_SESSION['mensagem'] = "Produto já existe!";
             redirecionar('novo.php');
         }
     } else {
-        $_SESSION['mensagem'] = "Por favor, preencha todos os campos.";
         redirecionar('novo.php');
     }
 } else {
